@@ -1,5 +1,7 @@
-exportPattern("^[[:alpha:]]+")
-
+export(explore_keywords)
+export(explore_subjects)
+export(explore_paper)
+export(list.topics)
 import(tidyverse)
 import(httr)
 import(rvest)
