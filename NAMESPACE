@@ -8,6 +8,8 @@ import('stringr')
 import('httr')
 import('rvest')
 import('lubridate')
+importFrom("purrr","map")
+importFrom("xml2","read_html")
 importFrom("utils", "browseURL")
 
 

@@ -13,7 +13,7 @@ if (length(publication.range) > 1){
 
 ## default to relevance if unsupported sort by method enetered 
 if (! (publication.range %in% supported.ranges)){
-  warning( paste(sort.method, "is not a supported date range: defaulting to 'last_year'",
+  warning( paste(publication.range, "is not a supported date range: defaulting to 'last_year'",
                  "use 'date.ranges()' to see acceptable ranges."))
   publication.range = 'last_year'
 } }

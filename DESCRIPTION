@@ -13,6 +13,10 @@ Imports:rvest,
         lubridate,
         dplyr,
         ggplot2,
-        utils
+        utils,
+        stringr,
+        purrr,
+        xml2
+        
 
     
