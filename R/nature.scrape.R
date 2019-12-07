@@ -1,7 +1,7 @@
 
 nature.scrape <- function(url){
   web.page<- read_html(url)
-  research.html <- GET(url)
+
   
   
   titles <- html_nodes(web.page, css = '.h3 a') %>% #names of newest papers
@@ -18,9 +18,17 @@ nature.scrape <- function(url){
     html_text()%>%
     str_remove_all('\n\\s*')
   
+  base <- 'https://www.nature.com'
+  urls <- html_nodes(web.page, css = '.h3 a') %>%
+    html_attr('href') %>%
+    str_extract('/articles/.*\\w') 
+  
+  urls <- paste0(base,urls)
   
   
-  out.table <- tibble(journal, dates, titles)
+  
+  
+  out.table <- tibble(journal, dates, titles, urls)
   return(out.table)
   
 }
