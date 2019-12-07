@@ -3,6 +3,5 @@ list.topics <- function(){
   html_nodes(web.page, css = '#content .text14') %>% #names of subjects
     html_text() %>%
   return()
-  
 }
 
