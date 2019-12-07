@@ -8,10 +8,6 @@ Description: Package is an interface to browse nature.com website and provide ar
 License: Creative Commons
 Encoding: UTF-8
 LazyData: true
-Imports:
-    tidyverse,
-    rvest,
-    httr,
-    lubridate
+Imports:tidyverse, rvest, httr, lubridate
 
     
