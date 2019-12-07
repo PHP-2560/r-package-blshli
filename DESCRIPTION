@@ -1,11 +1,17 @@
 Package: DiscoverNature
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Interacts with nature.com to provide article data
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Shawn, Blessing, Lilly
+Maintainer: The package maintainer <shawn_williams@brown.edu>
+Description: Package is an interface to browse nature.com website and provide article information. It facilitates both subject and keyword based inquiries.
+License: Creative Commons
 Encoding: UTF-8
 LazyData: true
+Imports:
+    tidyverse,
+    rvest,
+    httr,
+    lubridate
+
+    
