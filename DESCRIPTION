@@ -7,7 +7,7 @@ Maintainer: The package maintainer <shawn_williams@brown.edu>
 Description: Package is an interface to browse nature.com website and provide article information. It facilitates both subject and keyword based inquiries.
 License: propreitary
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Imports:rvest, 
         httr, 
         lubridate,
