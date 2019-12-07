@@ -2,7 +2,7 @@
 \alias{explore_paper}
 \title{explore_paper}
 \usage{
-explore_paper(url = 'http..... )
+explore_paper(url = 'http.....' )
 explore_paper(url = NULL, title,res )
 }
 \description{
