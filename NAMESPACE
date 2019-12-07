@@ -10,6 +10,7 @@ import('httr')
 import('rvest')
 import('lubridate')
 importFrom("purrr","map")
+importFrom("magrittr","%>%")
 importFrom("xml2","read_html")
 importFrom("utils", "browseURL")
 
