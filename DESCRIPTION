@@ -16,7 +16,8 @@ Imports:rvest,
         utils,
         stringr,
         purrr,
-        xml2
+        xml2,
+        forcats
         
 
     
