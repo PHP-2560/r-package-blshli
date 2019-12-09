@@ -18,6 +18,6 @@ if (sum(indx) != 0 ){
   article.types = article.types[indx]
 } else  {
   article.types = 'research'
-  print("No valid article type was provided, defaulting to 'research', use 'supported.types()' for acceptable article types")
+  print("No valid article type was provided, defaulting to 'research'")
 }
 }

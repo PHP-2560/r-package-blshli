@@ -1,23 +1,14 @@
-\name{explore_subject}
-\alias{explore_subject}
-\title{explore_subject}
+\name{explore_keywords}
+\alias{explore_keywords}
+\title{explore_keywords}
 \description{
-Takes as input a subject query, returns a tibble latest papers in subject area.
+Takes as input a keywords query, returns a tibble latest papers in keywords area.
 }
 \usage{
-explore_subject( "Biochemistry")
+explore_keywords( )
 }
 
 \examples{
-list.topics()
-  [1] "Biochemistry"                                  
-  [2] "Biological techniques"                         
-  [3] "Biophysics"                                    
-  [4] "Biotechnology" 
-...
-
-papers <- explore_subject('Biochemistry')
-
 
 Arguments
 article.types     article types to return
@@ -41,13 +32,16 @@ defaults to current year. l.year and u.year should not be used when publication.
 page.range    modifier that allows multiple pages of results to be returned. By default, only the first page of results from query are returned specifying range from n:m. When page.range = NULL, only the first page of results are returned. 
 
 # query examples 
-papersfrom2015to2019 <- explore_subject('Biochemistry',article.types = 'review', publication.range = '2015-2019')
+papers <- explore_keywords('FOXO3')
+#search parameters can be modified by providing addition arguments
 
-papersafter2015 <- explore_subject('Biochemistry',article.types = 'review', l.year= 2015)
+papersfrom2015to2019 <- explore_keywords('FOXO3',article.types = 'review', publication.range = '2015-2019')
 
-papersbefore2015 <- explore_subject('Biochemistry',article.types = 'review', u.year= 2015)
+papersafter2015 <- explore_keywords('FOXO3',article.types = 'review', l.year= 2015)
 
-papersbefore2015byRelevance <- explore_subject('Biochemistry',article.types = 'review', u.year= 2015, sort.method = 'relevance')
+papersbefore2015 <- explore_keywords('FOXO3',article.types = 'review', u.year= 2015)
 
-papersbefore2015byRelevance_pages1to10 <-  explore_subject('Biochemistry',article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
+papersbefore2015byRelevance <- explore_keywords('FOXO3',article.types = 'review', u.year= 2015, sort.method = 'relevance')
+
+papersbefore2015byRelevance_pages1to10 <- explore_keywords('FOXO3',article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
 }

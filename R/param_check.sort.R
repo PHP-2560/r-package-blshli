@@ -9,8 +9,7 @@ sort.method <- as.character(sort.method)
 
 ## default to relevance if unsupported sort by method enetered 
 if (! (sort.method %in% sort.by)){
-  warning( paste(sort.method, "is not a supported sort method: defaulting to 'relevance'",
-                 "use 'sort.methods()' to see acceptable methods."))
+  warning( paste(sort.method, "is not a supported sort method: defaulting to 'relevance'"))
   sort.method = 'relevance'
 } 
 }

@@ -2,7 +2,7 @@
 \alias{explore_subjects}
 \title{explore_subjects}
 \usage{
-explore_subjects(subject)
+explore_subjects( )
 }
 \description{
 returns tible with research papers on queried subjects 
