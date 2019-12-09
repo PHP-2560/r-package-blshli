@@ -3,7 +3,6 @@ explore_paper <- function(url = NULL, .title = NULL, res = NULL){
   
   if ((!is.null(url)) & is.null(.title)){
     browseURL(url)
-    
   }
     
   if (is.null(url) & (!is.null(.title))){

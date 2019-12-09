@@ -1,18 +1,20 @@
 \name{explore_paper}
 \alias{explore_paper}
 \title{explore_paper}
+\description{
+Use explore_paper( ) to open a paper in default browser 
+}
 \usage{
-explore_paper(url = 'http.....' )
+Takes as input either a url, or both a title (or part of title) to query and a tibble or result from explore_keyword( ) or explore_subject( ) call
+explore_paper(url = 'https://www.nature.com' )
 explore_paper(url = NULL, title,res )
 }
-\description{
-returns tible with research papers on queried paper 
-}
 \examples{
+Arguments
+url       url to open 
+.title    "title or part of title to search for in result tibble"
+res       results from explore_paper( ) or explore_subject( ) call 
 
-papers <- explore_paper('Biochemistry')
-
+papers <- explore_subject('Biochemistry')
 explore_paper <- function(url = NULL, .title = 'Introduction', res = papers)
-
-### Need to add more examples and stuff 
 }
