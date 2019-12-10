@@ -9,12 +9,14 @@ Takes as input either a url, or both a title (or part of title) to query and a t
 explore_paper(url = 'https://www.nature.com' )
 explore_paper(url = NULL, title,res )
 }
-\examples{
-Arguments
-url       url to open 
-.title    "title or part of title to search for in result tibble"
-res       results from explore_paper( ) or explore_subject( ) call 
+\arguments{
+url:  url to open, default is NULL
 
+.title:  "title or part of title to search for in result tibble"
+
+res: results from explore_paper( ) or explore_subject( ) call 
+}
+\examples{
 papers <- explore_subject('Biochemistry')
 explore_paper <- function(url = NULL, .title = 'Introduction', res = papers)
 }
