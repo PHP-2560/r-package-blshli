@@ -10,7 +10,7 @@ explore_paper <- function(url = NULL, .title = NULL, res = NULL){
     indx <- str_which(res$titles,.title)
     
     if (is.null(indx)) stop("could not find paper matching title")
-    if (length(indx) > 1) warning(".title matched multiple paper, only the first will be used")
+    if (length(indx) > 1) warning(".title matched multiple papers, only the first will be used")
     
     res[indx, 'urls'][1] %>%
       as.character() %>%
