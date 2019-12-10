@@ -11,4 +11,4 @@ explore_keyword <- function(keyword = NULL, page.range = NULL, ...){
     }
 }
 
-explore()
+
