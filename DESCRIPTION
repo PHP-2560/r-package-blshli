@@ -1,8 +1,8 @@
 Package: DiscoverNature
 Type: Package
-Title: Interacts with nature.com to provide article data
+Title: Interface to query articles available on nature.com
 Version: 0.1.0
-Author: Shawn, Blessing, Lilly
+Author: Shawn, Blessing
 Maintainer: The package maintainer <shawn_williams@brown.edu>
 Description: Package is an interface to browse nature.com website and provide article information. It facilitates both subject and keyword based inquiries.
 License: propreitary
