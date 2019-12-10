@@ -10,7 +10,7 @@ explore_paper(title, res)
 }
 \arguments{
 \item{url}{a url to open}
-\item{title}{The section of an article "title or part of title to search for in result tibble"(see   example for details)}
+\item{title}{Article title to search for in result tibble"(see   example for details)}
 \item{res}{Results from explore_paper( ) or explore_subject( ) call (see example for details)}
 }
 \details{
