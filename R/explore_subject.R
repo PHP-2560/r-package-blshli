@@ -9,7 +9,7 @@ explore_subject <- function(subject = NULL, page.range = NULL, ...){
     explore(subject = subject, ...)
   } 
   else{
-    map(page.range, ~ multi.explore(.x, subject = subject)) %>%
+    map(page.range, ~ multi.explore(.x, subject = subject, ...)) %>%
       merge.tables
     }
 }
