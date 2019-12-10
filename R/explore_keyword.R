@@ -1,4 +1,6 @@
-explore_keyword <- function(keyword = NULL, page.range = NULL, ...){
+explore_keyword <- function(subject = NULL, article.types = NULL, sort.method = NULL,
+                            publication.range = NULL,  l.year = NULL, 
+                            u.year = NULL, pages = NULL,...){
   subject = keyword
   if (length(subject) > 1 ) (subject <- str_flatten(subject,collapse = ' '))
   ### quick note for manual, allowing both range and singe page to be provided at the same time but ranges will take precedence 

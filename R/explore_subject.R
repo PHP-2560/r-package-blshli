@@ -1,4 +1,6 @@
-explore_subject <- function(subject = NULL, page.range = NULL, ...){
+explore_subject <- function(subject = NULL, article.types = NULL, sort.method = NULL,
+                            publication.range = NULL,  l.year = NULL, 
+                            u.year = NULL, pages = NULL,...){
   if (length(subject) > 1 ) stop('Only queries for 1 subject is supported')
   if ( ! (subject %in% list.topics())) stop(paste(subject, 'is not supported, use list.topics() to find supported subjects'))
   subject <- str_replace_all(subject, '\\s', '-') %>%
