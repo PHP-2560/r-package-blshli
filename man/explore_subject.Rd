@@ -4,6 +4,7 @@
 \description{
 Takes as input a subject query, returns a tibble of latest papers in subject area.
 }
+
 \usage{
 explore_subject(subject, ...)
 }
@@ -28,11 +29,6 @@ list.topics()
   [3] "Biophysics"                                    
   [4] "Biotechnology" 
 ...
-
-# Perform search for subject area Biochemistry
-papers <- explore_subject('Biochemistry') 
-
-#Search parameters can be modified by providing additional arguments
 
 papersfrom2015to2019 <- explore_subject('Biochemistry',article.types = 'review', publication.range = '2015-2019')
 

@@ -2,6 +2,7 @@
 \alias{explore_keyword}
 \title{explore_keyword}
 \description{
+
 Takes as input a keyword query, returns a tibble of latest papers in keyword area.
 }
 
@@ -19,6 +20,7 @@ explore_keyword(keyword, ...)
 }
 \value{a tibble of search results}
 
+
 \details{
 This function queries the nature.com website for a keyword(s) of interest. The function returns a tibble with publications found in search. The search query can be modified  by article type, publication year or date range, relevance and results page.
 }
@@ -27,10 +29,9 @@ This function queries the nature.com website for a keyword(s) of interest. The f
 papers <- explore_keyword('FOXO3') 
 
 #Search parameters can be modified by providing additional arguments
-
-
 #Option 1 Specifying a date range for results
 papersfrom2015to2019 <- explore_keyword('FOXO3',article.types = 'review', publication.range = '2015-2019')
+
 
 #Option 2 Specifying lower bound of date range
 papersafter2015 <- explore_keyword('FOXO3',article.types = 'review', l.year= 2015)
