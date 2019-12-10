@@ -12,7 +12,7 @@ subject <- str_replace_all( subject, '\\s', replacement = '%20')
 base.url <- paste0(base.url, subject)
 
 
-if ((!is.null(publication.range)) & (!is.null(l.year))) stop('provide only one publication range or lower year modifiers ')
+if ((!is.null(publication.range)) & (!is.null(l.year))) stop('provide only one publication range or lower year modifier')
 
 # extending the url
 if (! is.null(article.types)){
