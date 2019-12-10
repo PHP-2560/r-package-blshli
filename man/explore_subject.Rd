@@ -6,10 +6,12 @@ Takes as input a subject query, returns a tibble of latest papers in subject are
 }
 
 \usage{
-explore_subject(subject, ...)
+explore_subject(subject, page.range = NULL...)
 }
 \arguments{
 \item{keyword}{A character search query}
+\item{page.range}{returns results from multiple pages, when null only the first page of results are returned}
+# Optional modifiers
 \item{article.types}{article types to return. c('research','reviews','news','comments-and-opinion','news-and-views','amendments-and-corrections','correspondence','editorial','special-features','advertorial','books-and-arts','protocols','multimedia','research-highlights') }
 \item{sort.method}{method to sort articles. c('relevance','date_desc','date_asc')}
 \item{publication.range}{restrict results return to predefined date range. c('today', 'last_7_days', 'last_30_days', 'last_year','last_2_years', 'last_5_years')}
