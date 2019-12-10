@@ -1,4 +1,4 @@
-explore_keyword <- function(subject = NULL, article.types = NULL, sort.method = NULL,
+explore_keyword <- function(keyword = NULL, article.types = NULL, sort.method = NULL,
                             publication.range = NULL,  l.year = NULL, 
                             u.year = NULL, pages = NULL, page.range = NULL){
   subject = keyword

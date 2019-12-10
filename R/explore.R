@@ -4,7 +4,7 @@ explore<- function(subject = NULL, article.types = NULL, sort.method = NULL,
   if (is.null(subject)) (stop('A search query is required, see help for examples'))
   url.constructor(subject,article.types , sort.method ,
                   publication.range ,  l.year , 
-                  u.year , pages , page.range) %>%
+                  u.year , pages ) %>%
     nature.scrape()
 }
 
