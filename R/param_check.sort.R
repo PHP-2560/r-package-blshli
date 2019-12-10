@@ -5,7 +5,7 @@ sort.by <- c('relevance','date_desc','date_asc')
 
 ## Check to ensure order paramater inputed is supported 
 ## coerce to string
-sort.method <- as.character(sort.method)
+
 
 ## default to relevance if unsupported sort by method enetered 
 if (! (sort.method %in% sort.by)){
