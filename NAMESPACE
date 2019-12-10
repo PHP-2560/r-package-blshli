@@ -1,5 +1,5 @@
-export(explore_keywords)
-export(explore_subjects)
+export(explore_keyword)
+export(explore_subject)
 export(explore_paper)
 export(list.topics)
 import(dplyr)
