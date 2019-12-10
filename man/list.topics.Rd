@@ -14,9 +14,4 @@ list.topics()
 \examples{
 # Supported subject areas
 list.topics()
-  [1] "Biochemistry"                                  
-  [2] "Biological techniques"                         
-  [3] "Biophysics"                                    
-  [4] "Biotechnology" 
-...
 }

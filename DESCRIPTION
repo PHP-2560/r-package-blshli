@@ -9,7 +9,6 @@ License: propreitary
 Encoding: UTF-8
 LazyData: false
 Imports:rvest, 
-        httr, 
         lubridate,
         dplyr,
         ggplot2,
@@ -17,8 +16,9 @@ Imports:rvest,
         stringr,
         purrr,
         xml2,
-        forcats,
         magrittr
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
         
 
     

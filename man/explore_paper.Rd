@@ -8,12 +8,9 @@ Convenience wrapper for browseURL. Can open a url supplies directory or search a
 
 \usage{
 
-explore_paper(url = 'https://www.nature.com')
-explore_paper(title, res)
+explore_paper(url = 'https://www.nature.com', .title = NULL, res= NULL)
+explore_paper(url =NULL, .title, res)
 
-}
-\details{
-This function allows the user to input a link to an article of interest. The return will be access to the contents of the article (if an open access). If the article is not open access, a message will appear to inform the user. In an event where url is not specified, it will default to NULL. However, title and res options will be required to proceed with the code.
 }
 \arguments{
 \item{url}{a url to open}
