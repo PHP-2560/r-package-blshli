@@ -6,8 +6,9 @@ explore_subject <- function(subject = NULL, article.types = NULL, sort.method = 
   subject <- str_replace_all(subject, '\\s', '-') %>%
     str_to_lower()
   
-  if ((!is.null(l.year) ) |  (is.null(u.year))) (sort.method = 'date_desc')
+  if(is.null(publication.range) & is.null(sort.method)) (sort.method = 'date_desc')
   
+    
   ### quick note for manual, allowing both range and singe page to be provided at the same time but ranges will take precedence 
   if (is.null(page.range)){
     explore(subject,article.types , sort.method ,
