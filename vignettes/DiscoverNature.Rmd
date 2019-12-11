@@ -76,7 +76,7 @@ A third option is to search by subject. Subjects are topics curated by nature
 
 ```{r }
 topics <- list.topics()
-topics 
+head(topics)
 ```
 
 A papers in each subject can be searched for using the **explore_subject()** function
