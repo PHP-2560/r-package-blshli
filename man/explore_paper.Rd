@@ -14,7 +14,7 @@ explore_paper(url =NULL, .title, res)
 }
 \arguments{
 \item{url}{a url to open}
-\item{title}{Article title to search for in result tibble"(see   example for details)}
+\item{title}{Article title to search for in result tibble (see   example for details)}
 \item{res}{Results from explore_paper( ) or explore_subject( ) call (see example for details)}
 }
 \details{
@@ -23,9 +23,9 @@ This function provides an easy way for the user to open an article of interest i
 
 \examples{
 #Query examples
-# save results from explore subject call 
+#save results from explore subject call 
 papers <- explore_subject('Biochemistry')
-# open paper in browser that has 'Introduction in title
 
+#open paper in browser that has 'Introduction' in title
 explore_paper <- function(url = NULL, .title = 'Introduction', res = papers)
 }
