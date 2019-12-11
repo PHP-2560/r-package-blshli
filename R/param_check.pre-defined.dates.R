@@ -4,7 +4,6 @@ supported.ranges<- c('today', 'last_7_days', 'last_30_days', 'last_year',
                      'last_2_years', 'last_5_years')
 
 ## coerce to string
-publication.range <- as.character(publication.range)
 
 if (length(publication.range) > 1){
   warning('Multiple date ranges are not supported, using only the first provided range')

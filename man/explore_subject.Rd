@@ -29,7 +29,7 @@ This function queries the nature.com website papers in a subject area of interes
 list.topics()
 
 #Option 1 Specifying by article type and date range
-papersfrom2015to2019 <- explore_subject('Biochemistry',article.types = 'reviews', publication.range = '2015-2019')
+papersfrom2015to2019 <- explore_subject('Biochemistry',article.types = 'reviews', publication.range = 'last_year')
 
 #Option 2 Specifying lower bound of date range
 papersafter2015 <- explore_subject('Biochemistry',article.types = 'reviews', l.year= 2015)
