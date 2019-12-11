@@ -1,0 +1,15 @@
+---
+title: "Performing literature searches with ExploreNature"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Performing literature searches with explore nature}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Work in Progress
+...
