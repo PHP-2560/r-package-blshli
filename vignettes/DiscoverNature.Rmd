@@ -23,7 +23,7 @@ For the purpose of this project, my group was interested in scraping information
 
 To use this package, you will need to first run the following commands:
 
-```{r }
+```{r message=FALSE, warning=FALSE}
 library(devtools)
 #install_github("PHP-2560/r-package-blshli")
 library(DiscoverNature)
