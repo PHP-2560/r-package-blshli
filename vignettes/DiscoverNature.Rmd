@@ -46,38 +46,44 @@ Specfic use of each package can be found in the NAMESPACE file
 ## Using explore_keyword
 One of the options to search the database is through keywords. By default, only the keyword argument is required like in the code below
 ```{r }
-paper.results <- explore_keyword('cells', u.year = 2018 )
+paper.results <- explore_keyword('cells', u.year = 2018)
 paper.results 
 ```
 
 This queries the nature.com website for a keyword(s) of interest, in this case ***cells***. The function returns a tibble with publications found in search. 
 
-#Example:
+### Example:
 The keyword search query can be modified by article type, publication year or date range, sort preference and page range as shown in the examples below:
 ```{r }
-#article_type <- explore_keyword('cells', article.types = 'review') 
+article_type <- explore_keyword('cells', article.types = 'review') 
+article_type
 ```
-This shows article types to return: *research*,*reviews*,*news*,*comments-and-opinion*,*news-and-views*,*amendments-and-corrections*,*correspondence*,*editorial*,*special-features*,*advertorial*,*books-and-arts*,*protocols*,*multimedia*,*research-highlights*.
+This shows article types to return: *research*, *reviews*, *news*, *comments-and-opinion*, *news-and-views*, *amendments-and-corrections*, *correspondence*, *editorial*, *special-features*, *advertorial*, *books-and-arts*, *protocols*, *multimedia*, *research-highlights*.
 ```{r }
-#date_range <- explore_keyword('cells', article.types = 'review', publication.range = '2015-2019')
+date_range <- explore_keyword('FOXO3',article.types = 'review', publication.range = '2015-2019')
+date_range
 ```
 This restricts results returned to predefined date range:
-*today*, *last_7_days*, *last_30_days*, *last_year*,*last_2_years*, *last_5_years*. Publications range and dates can also be specified using the **l.year** and **u.year** arguments as shown in the following commands. **NOTE**: l.year and u.year should not be used when publication.range != NULL
+*today*, *last_7_days*, *last_30_days*, *last_year*, *last_2_years*, *last_5_years*. Publications range and dates can also be specified using the **l.year** and **u.year** arguments as shown in the following commands. **NOTE**: l.year and u.year should not be used when publication.range != NULL
 ```{r }
-#papersafter2015 <- explore_keyword('cells', article.types = 'review', l.year= 2015)
+papersafter2015 <- explore_keyword('cells', article.types = 'review', l.year= 2015)
+papersafter2015
 ```
 Specifies the lower bound of date range. In other words, it includes articles before a specific date/defaults to earliest year.
 ```{r }
-#papersbefore2015 <- explore_keyword('cells', article.types = 'review', u.year= 2015)
+papersbefore2015 <- explore_keyword('cells', article.types = 'review', u.year= 2015)
+papersbefore2015
 ```
 Specifies the upper bound of date range. In other words, includes articles after a specific date/defaults to current year. 
 ```{r }
-#sort_by <- explore_keyword('cells', article.types = 'review', u.year= 2015, sort.method = 'relevance')
+sort_by <- explore_keyword('cells', article.types = 'review', u.year= 2015, sort.method = 'relevance')
+sort_by
 ```
-Sorts results by *relevance*,*date_desc*,*date_asc*.
+Sorts results by *relevance*, *date_desc*, *date_asc*.
 
 ```{r }
-#page_range <- explore_keyword('cells', article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
+page_range <- explore_keyword('cells', article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
+page_range
 ```
 This modifier allows for multiple pages of results to be returned. By default, only the first page of results from query are returned specifying range from n:m. When page.range = NULL, only the first page of results are returned ***generally a page query will return ~50 papers***
 
@@ -116,3 +122,38 @@ paper_by_sub
 ```
 
 This queries the nature.com website for a subject of interest, in this case *Biochemistry*. The function returns a tibble with publications found in search. The search query can be modified by article type, publication year or date range, relevance and results page.
+
+### Example:
+The subject search query can be modified by article type, publication year or date range, sort preference and page range as shown in the examples below:
+```{r }
+article_type <- explore_subject('Biochemistry', article.types = 'review') 
+article_type
+```
+This shows article types to return: *research*, *reviews*, *news*, *comments-and-opinion*, *news-and-views*, *amendments-and-corrections*, *correspondence*, *editorial*, *special-features*, *advertorial*, *books-and-arts*, *protocols*, *multimedia*, *research-highlights*.
+```{r }
+date_range <- explore_subject('Biochemistry', article.types = 'review', publication.range = '2015-2019')
+date_range
+```
+This restricts results returned to predefined date range:
+*today*, *last_7_days*, *last_30_days*, *last_year*, *last_2_years*, *last_5_years*. Publications range and dates can also be specified using the **l.year** and **u.year** arguments as shown in the following commands. **NOTE**: l.year and u.year should not be used when publication.range != NULL
+```{r }
+papersafter2015 <- explore_subject('Biochemistry', article.types = 'review', l.year= 2015)
+papersafter2015
+```
+Specifies the lower bound of date range. In other words, it includes articles before a specific date/defaults to earliest year.
+```{r }
+papersbefore2015 <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015)
+papersbefore2015
+```
+Specifies the upper bound of date range. In other words, includes articles after a specific date/defaults to current year. 
+```{r }
+sort_by <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015, sort.method = 'relevance')
+sort_by
+```
+Sorts results by *relevance*, *date_desc*, *date_asc*.
+
+```{r }
+#page_range <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
+#page_range
+```
+This modifier allows for multiple pages of results to be returned. By default, only the first page of results from query are returned specifying range from n:m. When page.range = NULL, only the first page of results are returned ***generally a page query will return ~50 papers***
