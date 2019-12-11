@@ -3,7 +3,7 @@
 
 url.constructor <-  function( subject = NULL, article.types = NULL, sort.method = NULL,
                               publication.range = NULL,  l.year = NULL, 
-                              u.year = NULL, pages = NULL){
+                              u.year = NULL, pages = page){
 base.url <- 'https://www.nature.com/search?q='
 # param checks and extension
 
