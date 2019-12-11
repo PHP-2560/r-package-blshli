@@ -2,7 +2,7 @@
 title: "Performing literature searches with DiscoverNature"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Performing literature searches with explore nature}
+  %\VignetteIndexEntry{Performing literature searches with discover nature}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -17,7 +17,7 @@ Nature is one of the world's leading scientific journal publication platforms. I
 The Nature website's main page consists of different sesctions including: the featured contents, news & comment, Latest Reviews and Analysis, Latestest research, collections, trending altmetric and nature careers. Each of these sections provides viewers with latest content publications and can be browsed by clicking on the specific hyperlink of interest.
 
 ## Our Goal
-For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since it forthcoming. We were also interested in exploring how many articles were published by decades and what keywords were popular. We further created funtions that could extract  articles by keywords, paper and subject; these categories could be filtered using parameters such as: *article type*, *publication year*, *date range* and *relevance*.
+For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since its forthcoming. We were also interested in exploring how many articles were published by decades and what keywords, papers and authors were popular. We further created funtions that could extract  articles by keyword, paper and subject; these categories could be filtered using parameters such as: ***article type***, ***publication year***, ***date range*** and ***relevance***.
 
 ## Getting Started
 
@@ -30,28 +30,67 @@ To use this package, you will need to first run the following commands:
 #install_github("PHP-2560/r-package-blshli")
 #library(DiscoverNature)
 ```
-This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keywords( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**
-
-
-## Using explore_keywords
-One of the options to search the database is through keywords
+This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keyword( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**. Other necessary packages needed to successfully run this package are:
 ```{r }
-#paper.results <- explore_keywords('stem cells')
+#library(rvest)
+#library(devtools)
+#library(lubridate)
+#library(dplyr)
+#library(ggplot2)
+#library(utils)
+#library(stringr)
+#library(purrr)
+#library(xml2)
+#library(magrittr)
+```
+Specfic use of each package can be found in the NAMESPACE file
+
+## Using explore_keyword
+One of the options to search the database is through keywords. 
+```{r }
+#paper.results <- explore_keyword('stem cells')
 #paper.results %>%
   #View()
 ```
+This queries the nature.com website for a keyword(s) of interest, in this case *stem cells*. The function returns a tibble with publications found in search. The search query can be modified  by article type, publication year or date range, relevance and results page.
 
 
 ## Using explore_paper
-Another way to search is by using aspects of the paper
+Another way to search is by using aspects of the paper. 
 ```{r }
-#explore_paper(.title = 'Tppp3+', res = paper.results)
+#paper <- explore_paper(.title = 'Tppp3+', res = paper.results)
+#paper %>%
+  #View()
 ```
+This provides an easy way for the user to open an article of interest in a browser without having to manually identify url of paper. To do this, the user will need to input both a title and result based on a *keyword* or *subject* search as shown in the code.
 
+A default of this search is to simply input a url. When a url is present, the title and res arguments are not necessary. See below for example:
+```{r }
+#find_paper <- explore_paper(url = 'https://www.nature.com', .title = NULL, res= NULL)
+#find_paper %>%
+  #View()
+```
+This option is an alternative to get direct access to the website of interest.
 
 ## Using explore_subject
-A third option is to search by subject. This option includes a ***list.topics()*** which provides the user with the list of available topics to choose from.
+A third option is to search by subject. 
 ```{r }
-#papers <- explore_subject('Biochemistry')
+#paper_by_sub <- explore_subject("Biochemistry")
+#paper_by_sub %>%
+  #View()
+```
+This queries the nature.com website for a subject of interest, in this case *Biochemistry*. The function returns a tibble with publications found in search. The search query can be modified by article type, publication year or date range, relevance and results page.
+
+### *Error message with explore_subject*
+In an event where a subject that is not present in the database is selected, an error message appears:
+```{r }
+#paper_by_sub <- explore_subject("Biology") %>%
+#paper_by_sub %>%
+  #View()
+```
+The message will suggest use of the option ***list.topics()***. This function provides the user with the list of available topics to choose from. See the code below:
+```{r }
 #topics <- list.topics()
+#topics %>%
+  #View()
 ```
