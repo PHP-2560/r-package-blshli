@@ -79,7 +79,7 @@ topics <- list.topics()
 head(topics)
 ```
 
-A papers in each subject can be searched for using the **explore_subject()** function
+Papers in each subject can be searched for using the **explore_subject()** function
 ```{r }
 paper_by_sub <- explore_subject("Biochemistry")
 paper_by_sub 
