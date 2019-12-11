@@ -10,6 +10,14 @@ vignette: >
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+## Introduction
+Nature is one of the world's leading scientific journal publication platforms. It was founded by Norman Lockyer and generously endorsed by Daniel and Alexander Macmillan in 1869. The journal originated in Britain and had its first article published on November 4th 1869. According to Wikipedia, one of the reasons why this journal thrived among other existing journals of its kind is likely due to its liberal values. As of 2018, Nature had an impact factor (based on citations and credibility) of 43.070 which is considered very prestigious and reputtable.
+
+## Navigating Nature Website from the direct webpage
+The Nature website's main page consists of different sesctions including: the featured contents, news & comment, Latest Reviews and Analysis, Latestest research, collections, trending altmetric and nature careers. Each of these sections provides viewers with latest content publications and can be browsed by clicking on the specific hyperlink of interest.
+
+## Our Goal
+For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since it forthcoming. We were also interested in exploring how many articles were published by decades and what keywords were popular. We further created funtions that could extract  articles by keywords, paper and subject; these categories could be filtered using parameters such as: *article type*, *publication year*, *date range* and *relevance*.
 
 ## Getting Started
 
@@ -22,7 +30,7 @@ To use this package, you will need to first run the following commands:
 #install_github("PHP-2560/r-package-blshli")
 #library(DiscoverNature)
 ```
-This code should provide access to the database with information to perform a basic search. There are four main categories that can be searched using this database. These are **explore_keywords**, **explore_subject**, **list,topics**, and **explore_paper**
+This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keywords( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**
 
 
 ## Using explore_keywords
@@ -42,3 +50,8 @@ Another way to search is by using aspects of the paper
 
 
 ## Using explore_subject
+A third option is to search by subject. This option includes a ***list.topics()*** which provides the user with the list of available topics to choose from.
+```{r }
+#papers <- explore_subject('Biochemistry')
+#topics <- list.topics()
+```
