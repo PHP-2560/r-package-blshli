@@ -13,5 +13,4 @@ explore_paper(.title = 'Tppp3+', res = paper.results)
 
 vignette('DiscoverNature')
 
-
-explore_keyword('stem cells',page.range = 1:4)
+? explore_subject()

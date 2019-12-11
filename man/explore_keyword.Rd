@@ -33,7 +33,7 @@ papers <- explore_keyword('FOXO3')
 
 #Search parameters can be modified by providing additional arguments
 #Option 1 Specifying a date range for results
-papersfrom2015to2019 <- explore_keyword('FOXO3',article.types = 'review', publication.range = '2015-2019')
+papersfrom2015to2019 <- explore_keyword('FOXO3',article.types = 'review', publication.range = 'last_year')
 
 
 #Option 2 Specifying lower bound of date range
