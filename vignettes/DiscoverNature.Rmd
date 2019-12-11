@@ -1,5 +1,5 @@
 ---
-title: "Performing literature searches with ExploreNature"
+title: "Performing literature searches with DiscoverNature"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Performing literature searches with explore nature}
@@ -11,5 +11,34 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Work in Progress
-...
+## Getting Started
+
+To use this package, you will need to first run the following commands:
+
+```{r }
+#install.packages('devtools')
+#library(devtools)
+
+#install_github("PHP-2560/r-package-blshli")
+#library(DiscoverNature)
+```
+This code should provide access to the database with information to perform a basic search. There are four main categories that can be searched using this database. These are **explore_keywords**, **explore_subject**, **list,topics**, and **explore_paper**
+
+
+## Using explore_keywords
+One of the options to search the database is through keywords
+```{r }
+#paper.results <- explore_keywords('stem cells')
+#paper.results %>%
+  #View()
+```
+
+
+## Using explore_paper
+Another way to search is by using aspects of the paper
+```{r }
+#explore_paper(.title = 'Tppp3+', res = paper.results)
+```
+
+
+## Using explore_subject
