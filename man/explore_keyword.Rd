@@ -37,14 +37,14 @@ papersfrom2015to2019 <- explore_keyword('FOXO3',article.types = 'review', public
 
 
 #Option 2 Specifying lower bound of date range
-papersafter2015 <- explore_keyword('FOXO3',article.types = 'review', l.year= 2015)
+papersafter2015 <- explore_keyword('FOXO3',article.types = 'reviews', l.year= 2015)
 
 #Option 3 Specifying upper bound of date range
-papersbefore2015 <- explore_keyword('FOXO3',article.types = 'review', u.year= 2015)
+papersbefore2015 <- explore_keyword('FOXO3',article.types = 'reviews', u.year= 2015)
 
 #Option 4 Sorting results by relevance
-papersbefore2015byRelevance <- explore_keyword('FOXO3',article.types = 'review', u.year= 2015, sort.method = 'relevance')
+papersbefore2015byRelevance <- explore_keyword('FOXO3',article.types = 'reviews', u.year= 2015, sort.method = 'relevance')
 
 #Option 5 Specifiyng results from more than 1 page. (generally a page query will return ~ 50 papers )
-papersbefore2015byRelevance_pages1to10 <- explore_keyword('FOXO3',article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
+papersbefore2015byRelevance_pages1to10 <- explore_keyword('FOXO3',article.types = 'reviews', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
 }
