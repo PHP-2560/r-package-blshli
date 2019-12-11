@@ -30,44 +30,30 @@ To use this package, you will need to first run the following commands:
 #install_github("PHP-2560/r-package-blshli")
 #library(DiscoverNature)
 ```
-This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keyword( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**. Other necessary packages needed to successfully run this package are:
-```{r }
-#library(rvest)
-#library(devtools)
-#library(lubridate)
-#library(dplyr)
-#library(ggplot2)
-#library(utils)
-#library(stringr)
-#library(purrr)
-#library(xml2)
-#library(magrittr)
-```
-Specfic use of each package can be found in the NAMESPACE file
+This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keyword( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**. 
 
 ## Using explore_keyword
 One of the options to search the database is through keywords. 
 ```{r }
-#paper.results <- explore_keyword('stem cells')
-#paper.results %>%
-  #View()
+paper.results <- explore_keyword('cells', u.year = 1846 )
+paper.results 
 ```
 This queries the nature.com website for a keyword(s) of interest, in this case *stem cells*. The function returns a tibble with publications found in search. The search query can be modified  by article type, publication year or date range, relevance and results page.
 
 
 ## Using explore_paper
-Another way to search is by using aspects of the paper. 
+This functions provides an easy way for the user to open an article of interest in a browser without having to manually identify url of paper. To do this, the user will need to input both a title and result based on a *keyword* or *subject* search as shown in the code.
+
 ```{r }
-#paper <- explore_paper(.title = 'Tppp3+', res = paper.results)
-#paper %>%
-  #View()
+explore_paper(.title = 'The Zephyr', res = paper.results)
+
 ```
-This provides an easy way for the user to open an article of interest in a browser without having to manually identify url of paper. To do this, the user will need to input both a title and result based on a *keyword* or *subject* search as shown in the code.
+
 
 A default of this search is to simply input a url. When a url is present, the title and res arguments are not necessary. See below for example:
 ```{r }
-#find_paper <- explore_paper(url = 'https://www.nature.com', .title = NULL, res= NULL)
-#find_paper %>%
+find_paper <- explore_paper(url = 'https://www.nature.com', .title = NULL, res= NULL)
+find_paper %>%
   #View()
 ```
 This option is an alternative to get direct access to the website of interest.
@@ -88,7 +74,7 @@ In an event where a subject that is not present in the database is selected, an 
 #paper_by_sub %>%
   #View()
 ```
-The message will suggest use of the option ***list.topics()***. This function provides the user with the list of available topics to choose from. See the code below:
+The message will suggest use of the option ***list.topics()***. This function provides the user with an up to date list of available topics to choose from. See the code below:
 ```{r }
 #topics <- list.topics()
 #topics %>%

@@ -1,4 +1,4 @@
-install.packages('devtools')
+#install.packages('devtools')
 library(devtools)
 
 library(dplyr)
@@ -11,5 +11,5 @@ paper.results %>%
 
 explore_paper(.title = 'Tppp3+', res = paper.results)
 
-
+vingnette('DiscoverNature')
 
