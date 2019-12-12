@@ -18,7 +18,15 @@ if ((!is.null(publication.range)) & (!is.null(u.year))) stop('provide only one: 
 # extending the url
 if (! is.null(article.types)){
   param_check.article.type(article.types)
-  base.url <- paste0(base.url,'&article_type=', str_replace_all(article.types,'\\s','%2C'))
+  base.url <- paste0(base.url,'&article_type=')
+  
+  for (type in article.types){
+    base.url <- paste0(base.url,'%2C',type)
+  }
+ 
+  
+                     
+  
 
 } 
 

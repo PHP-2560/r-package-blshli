@@ -60,8 +60,21 @@ cells_reviews <- explore_keyword('cells', article.types = 'review')
 cells_reviews
 ```
 
-Valid article types:
-*research*,*reviews*,*news*,*comments-and-opinion*,*news-and-views*,*amendments-and-corrections*,*correspondence*,*editorial*,*special-features*,*advertorial*,*books-and-arts*,*protocols*,*multimedia*,*research-highlights*.
+**Valid article types:**
+* research 
+* reviews
+* news
+* comments-and-opinion
+* news-and-views
+* amendments-and-corrections
+* correspondenceeditorial
+* special-features
+* advertorial
+* books-and-arts
+* protocols
+* multimedia
+* research-highlights
+
 
 ```{r }
 cells_reviews_last5years <- explore_keyword('cells', article.types = 'reviews', publication.range = 'last_5_years')
@@ -71,9 +84,10 @@ cells_reviews_last5years
 Predefined date ranges:
 *today*, *last_7_days*, *last_30_days*, *last_year*,*last_2_years*, *last_5_years*. 
 
+####Custom date range searches
 Users can also search for custom date ranges using either the **l.year** and **u.year** which corresponds to the lower and upper bounds of the year (in 4 digit format) based search.
 
- **NOTE**: if l.year/u.year  and predefined range arguments are supplied together, the predefined.range argument will take priority.
+**NOTE**: if l.year/u.year  and predefined range arguments are supplied together, the predefined.range argument will take priority.
  
 Specify the lower bound of date range. In other words, it includes articles published ***after*** a specific date/defaults to earliest year.
 
@@ -93,15 +107,17 @@ papersbefore2015
 
 ```
 
-
-The results can sorted by date or by relevance.  For keyword searches, the default sort method is by relevance, while for subject searches the default sort method is in descending order, with the newest papers shown first. The user should be aware of the sorting method since by default only the first page of results are returned. 
+**Sorting methods**
+The results can sorted by date or by relevance.  
+For keyword searches, the default sort method is by relevance, while for subject searches the default sort method is in descending order, with the newest papers shown first. The user should be aware of the sorting method since by default only the first page of results are returned. 
 In later sections we will describe how to request that multiple pages of results are returned using the *page.range* argument. 
 
 ```{r }
 explore_keyword('cells', article.types = 'reviews', sort.method = 'relevance')
 
 ```
-Sort methods:
+
+*Sort methods:*
 *relevance*,*date_desc*,*date_asc*.
 
 Returning multiple pages of results
@@ -130,61 +146,24 @@ This queries the nature.com website for a subject of interest, in this case *Bio
 paper_by_sub <- explore_subject("Biochemistry",  u.year = 2018)
 paper_by_sub 
 
-
-
 ```
 
+explore_subject( ) search results can be modified by the methods shown for explore_keyword( )
 
 ## Using explore_paper
-
 This functions provides an easy way for the user to open an article of interest in a browser without having to manually identify url of paper. 
 
-To do this, the user will need to input both a title and resulting tibble from a *explore_keyword* or *explore_subject* search as shown in the code.
+**Opening paper in a saved search**
+To do this, the user will need to input both a title and resulting tibble from a *explore_keyword* or *explore_subject* search as shown in the code. The explore_paper call searches for the title within the saved search and opens passes the appropriate url to the browseURL( )
 
 ```{r }
-#explore_paper(.title = 'Arginine methylation', res = paper.results)
+#explore_paper(.title = 'c-Myc', res = paper.results)
 
 ```
 
+**Openeing url directly**
 As an alternative, a url can be supplied directly using the url argument
 ```{r }
 #explore_paper(url = 'https://www.nature.com/articles/s41590-018-0222-z')
 
 ```
-
-=======
-### Example:
-The subject search query can be modified by article type, publication year or date range, sort preference and page range as shown in the examples below:
-```{r }
-article_type <- explore_subject('Biochemistry', article.types = 'review') 
-article_type
-```
-This shows article types to return: *research*, *reviews*, *news*, *comments-and-opinion*, *news-and-views*, *amendments-and-corrections*, *correspondence*, *editorial*, *special-features*, *advertorial*, *books-and-arts*, *protocols*, *multimedia*, *research-highlights*.
-```{r }
-date_range <- explore_subject('Biochemistry', article.types = 'review', publication.range = '2015-2019')
-date_range
-```
-This restricts results returned to predefined date range:
-*today*, *last_7_days*, *last_30_days*, *last_year*, *last_2_years*, *last_5_years*. Publications range and dates can also be specified using the **l.year** and **u.year** arguments as shown in the following commands. **NOTE**: l.year and u.year should not be used when publication.range != NULL
-```{r }
-papersafter2015 <- explore_subject('Biochemistry', article.types = 'review', l.year= 2015)
-papersafter2015
-```
-Specifies the lower bound of date range. In other words, it includes articles before a specific date/defaults to earliest year.
-```{r }
-papersbefore2015 <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015)
-papersbefore2015
-```
-Specifies the upper bound of date range. In other words, includes articles after a specific date/defaults to current year. 
-```{r }
-sort_by <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015, sort.method = 'relevance')
-sort_by
-```
-Sorts results by *relevance*, *date_desc*, *date_asc*.
-
-```{r }
-#page_range <- explore_subject('Biochemistry', article.types = 'review', u.year= 2015, sort.method = 'relevance', page.range = 1:10)
-#page_range
-```
-This modifier allows for multiple pages of results to be returned. By default, only the first page of results from query are returned specifying range from n:m. When page.range = NULL, only the first page of results are returned ***generally a page query will return ~50 papers***
->>>>>>> ba27e47580d77543fe1475e92d210e6e175c36c4
