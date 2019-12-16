@@ -41,6 +41,7 @@ This code should provide access to the database with information to perform a ba
 #library(xml2)
 #library(magrittr)
 ```
+
 Specfic use of each package can be found in the NAMESPACE file
 
 ## Using explore_keyword

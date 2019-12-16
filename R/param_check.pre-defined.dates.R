@@ -10,7 +10,9 @@ if (length(publication.range) > 1){
   publication.range = publication.range[1]
 }
 
-## default to relevance if unsupported sort by method enetered 
+# ensure lower case
+if (! is.null(publication.range)) publication.range = str_to_lower(publication.range)
+## default to  if unsupported sort by method enetered 
 if (! (publication.range %in% supported.ranges)){
   warning( paste(publication.range, "is not a supported date range: defaulting to 'last_year'"))
   publication.range = 'last_year'
