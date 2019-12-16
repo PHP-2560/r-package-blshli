@@ -11,10 +11,10 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ## Introduction
-Nature is one of the world's leading scientific journal publication platforms. It was founded by Norman Lockyer and generously endorsed by Daniel and Alexander Macmillan in 1869. The journal originated in Britain and had its first article published on November 4th 1869. According to Wikipedia, one of the reasons why this journal thrived among other existing journals of its kind is likely due to its liberal values. As of 2018, Nature had an impact factor (based on citations and credibility) of 43.070 which is considered very prestigious and reputtable.
+Nature is one of the world's leading scientific journal publication platforms. It was founded by Norman Lockyer and generously endorsed by Daniel and Alexander Macmillan in 1869. According to Wikipedia, the journal originated in Britain and had its first article published on November 4th 1869. Furthermore, this source states that one of the reasons why Nature thrived among other existing journals of its kind is likely due to its liberal values. As of 2018, Nature had an impact factor (based on citations and credibility) of 43.070 which is considered very prestigious and reputtable.
 
 ## Navigating Nature Website from the direct webpage
-The Nature website's main page consists of different sesctions including: the featured contents, news & comment, Latest Reviews and Analysis, Latestest research, collections, trending altmetric and nature careers. Each of these sections provides viewers with latest content publications and can be browsed by clicking on the specific hyperlink of interest.
+The Nature website's main page consists of different sections including: Featured contents, News & Comment, Latest Reviews and Analysis, Latestest research, Collections, Trending Altmetric and Nature Careers. Each of these sections provide viewers with latest content publications and can be browsed by clicking on the specific hyperlink of interest.
 
 ## Our Goal
 For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since its forthcoming. We were also interested in exploring how many articles were published by decades and what keywords, papers and authors were popular. We further created funtions that could extract  articles by keyword, paper and subject; these categories could be further filtered using parameters such as: ***article type***, ***publication year***, ***date range*** and ***relevance***.
@@ -46,7 +46,7 @@ Specfic use of each package can be found in the NAMESPACE file
 ## Using explore_keyword
 One of the options to search the database is through keywords. By default, only the keyword argument is required like in the code below
 ```{r }
-paper.results <- explore_keyword('cells', u.year = 2018)
+paper.results <- explore_keyword('cells')
 paper.results 
 ```
 
@@ -55,8 +55,9 @@ This queries the nature.com website for a keyword(s) of interest, in this case *
 ### Example:
 The keyword search query can be modified by article type, publication year or date range, sort preference and page range as shown in the examples below:
 
+### ***By article type***
 ```{r }
-cells_reviews <- explore_keyword('cells', article.types = 'review')
+cells_reviews <- explore_keyword('cells', article.types = 'reviews')
 cells_reviews
 ```
 
@@ -75,7 +76,7 @@ cells_reviews
 * multimedia
 * research-highlights
 
-
+### ***By publication range/date***
 ```{r }
 cells_reviews_last5years <- explore_keyword('cells', article.types = 'reviews', publication.range = 'last_5_years')
 cells_reviews_last5years
@@ -84,12 +85,12 @@ cells_reviews_last5years
 Predefined date ranges:
 *today*, *last_7_days*, *last_30_days*, *last_year*,*last_2_years*, *last_5_years*. 
 
-####Custom date range searches
-Users can also search for custom date ranges using either the **l.year** and **u.year** which corresponds to the lower and upper bounds of the year (in 4 digit format) based search.
+**Custom date range searches:**
+
+Users can also search for custom date ranges using either the **l.year** and **u.year** which corresponds to the lower and upper bounds of the year respectively (in 4 digit format).
 
 **NOTE**: if l.year/u.year  and predefined range arguments are supplied together, the predefined.range argument will take priority.
  
-Specify the lower bound of date range. In other words, it includes articles published ***after*** a specific date/defaults to earliest year.
 
 ```{r }
 
@@ -97,17 +98,18 @@ papersafter2015 <- explore_keyword('cells', article.types = 'reviews',
                                    sort.method = 'date_asc', l.year= 2015)
 papersafter2015
 ```
+l.year specifies the lower bound of date range. In other words, it includes articles published ***after*** a specific date/defaults to earliest year.
 
-
-Specify the upper bound of date range. In other words, includes articles ***before*** a specific date/defaults to current year. 
 ```{r }
 papersbefore2015 <- explore_keyword('cells', article.types = 'reviews',
                                     sort.method = 'date_desc', u.year= 2015)
 papersbefore2015
 
 ```
+u.year specifies the upper bound of date range. In other words, includes articles ***before*** a specific date/defaults to current year. 
 
-**Sorting methods**
+### ***By sort methods***
+
 The results can sorted by date or by relevance.  
 For keyword searches, the default sort method is by relevance, while for subject searches the default sort method is in descending order, with the newest papers shown first. The user should be aware of the sorting method since by default only the first page of results are returned. 
 In later sections we will describe how to request that multiple pages of results are returned using the *page.range* argument. 
@@ -118,9 +120,9 @@ explore_keyword('cells', article.types = 'reviews', sort.method = 'relevance')
 ```
 
 *Sort methods:*
-*relevance*,*date_desc*,*date_asc*.
+*relevance*, *date_desc*, *date_asc*.
 
-Returning multiple pages of results
+### ***By multiple pages of results***
 
 By default, only the first page of results from a search are returned. ***generally a page query will return ~50 papers***. However, we have included the ability to return multiple pages worth of results from a search. The *page.range* arguments takes a vector of numbers corresponding to the requested pages. As outlined above, the sort method will influence the the order in which papers are ordered in the results and thus the results from the function calls. We sought to include the most appropriate defaults for each search type.   
 
@@ -130,7 +132,7 @@ explore_keyword('cells', article.types = 'reviews' , page.range = 1:3)
 
 
 ## Using explore_subject
-A third option is to search by subject areas curated by nature. This option is most usefull for broad searches 
+A third option is to search by subject areas curated by nature. This option is most useful for broad searches 
 
 ***list.topics()***.  provides the user with an up to date list of available topics to choose from. 
 
@@ -139,7 +141,7 @@ topics <- list.topics()
 head(topics)
 ```
 
-Papers in each subject can be searched for using the **explore_subject()** function
+Papers in each subject can be searched for using the **explore_subject()** function.
 This queries the nature.com website for a subject of interest, in this case *Biochemistry*. The function returns a tibble with publications found in search.
 
 ```{r }
@@ -153,15 +155,15 @@ explore_subject( ) search results can be modified by the methods shown for explo
 ## Using explore_paper
 This functions provides an easy way for the user to open an article of interest in a browser without having to manually identify url of paper. 
 
-**Opening paper in a saved search**
-To do this, the user will need to input both a title and resulting tibble from a *explore_keyword* or *explore_subject* search as shown in the code. The explore_paper call searches for the title within the saved search and opens passes the appropriate url to the browseURL( )
+**Opening paper in a saved search**:
+To do this, the user will need to input both a title and resulting tibble from a *explore_keyword* or *explore_subject* search as shown in the code. The explore_paper call searches for the title within the saved search and passes the appropriate url to the browseURL( )
 
 ```{r }
 #explore_paper(.title = 'c-Myc', res = paper.results)
 
 ```
 
-**Openeing url directly**
+**Opening url directly**:
 As an alternative, a url can be supplied directly using the url argument
 ```{r }
 #explore_paper(url = 'https://www.nature.com/articles/s41590-018-0222-z')
