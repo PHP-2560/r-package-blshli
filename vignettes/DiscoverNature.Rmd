@@ -20,24 +20,24 @@ The Nature website's main page consists of different sections including: Feature
 For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since its forthcoming. We were also interested in exploring how many articles were published by decades and what keywords, papers and authors were popular. We further created funtions that could extract  articles by keyword, paper and subject; these categories could be further filtered using parameters such as: ***article type***, ***publication year***, ***date range*** and ***relevance***.
 
 ## Development and individual contributions
-This package was based on the nature.scrape function written for the text mining assigment. Our goal was create a package that would allow a user to search for a topic of interest on nature.com and save the results  along wih other useful information such as the type of article, dates of publication and a url to the actual article to facilitate reading. *We realize  that limiting searching a broader data database would provide more utility and have developed the PubSearch package, which makes use of the entrez api to perform more robust literature searches (see shiny app)*
+This package was based on the nature.scrape function written for the text mining assigment. Our goal was to create a package that would allow a user to search for a topic of interest on nature.com and save the results  along with other useful information such as the type of article, dates of publication and a url to the actual article to facilitate reading. *We realize  that opening the search to a broader database would provide more utility. Thus, we developed the PubSearch package, which makes use of the entrez api to perform more robust literature searches (see shiny app)*
 
-We both worked on the original scrape function. For the package, Shawn was tasked with  functions to make the package complete.
+We both worked on the original scrape function. For the package, Shawn was tasked with creating functions to make the package complete.
 
 ### Functions
 **parameter checks:** 
-The aim of these functions are to ensure that the inputs from the user conform to what is required to correctly generate a nature.com url. In most cases, these functions will sorrect common errors such as erroneous white spaces, case issues. The goal was to correct for simple mistakes and break (stop ) and output an error for other cases to ensure that the results the user is getting are those which were expected. 
+The aim of these functions are to ensure that the inputs from the user conform to what is required to correctly generate a nature.com url. In most cases, these functions will correct common errors such as erroneous white spaces, case issues. The goal was to correct for simple mistakes and break (stop ) and output an error for other cases to ensure that the results the user is getting are those which were expected. 
 
 **explore** 
-These are the functions the users interact with. These functions take user defined objects and passes them to the appropriate downstream functions depending on the inputs. 
+These are the functions the users interact with. These functions take user defined objects and pass them to the appropriate downstream functions depending on the inputs. 
 
 Blessing was tasked with writting the documentation and use examples for the package. 
 
-We tried to ensure that sufficent documentation was available so that a new user would be able to use the package easily. We also included several examples which highlights different key functionalities in the help files and wrote this vignette. 
+We tried to ensure that sufficent documentation was available so that a new user would be able to use the package easily. We also included several examples which highlight different key functionalities in the help files and wrote this vignette. 
 
 **nature.scrape** 
-This function does the webscrapping and text mining. The consistency of the organization of nature.com websites made scrappiung the text and categorizing straightforward however, we realize that any refresh/update to the website's major design elements would likely render our package ineffective. 
-We aimed to avoid this in the PubSearch package, which is available on github, but is not being turned in for a grade since we dont have enough time to thoroughly test it.
+This function does the webscrapping and text mining. The consistency of the organization of nature.com websites made scrapping the text and categorizing straightforward. However, we realize that any refresh/update to the website's major design elements would likely render our package ineffective. 
+We aimed to avoid this in the PubSearch package, which is available on github, but is not being turned in for a grade since we don't have enough time to thoroughly test it.
 
 ## Getting Started
 The package can be installed from github using:
@@ -145,7 +145,7 @@ explore_keyword('cells', article.types = 'reviews', sort.method = 'relevance')
 *Sort methods:*
 *relevance*, *date_desc*, *date_asc*.
 
-### ***By multiple pages of results***
+**By multiple pages of results**
 
 By default, only the first page of results from a search are returned. ***generally a page query will return ~50 papers***. However, we have included the ability to return multiple pages worth of results from a search. The *page.range* arguments takes a vector of numbers corresponding to the requested pages. As outlined above, the sort method will influence the the order in which papers are ordered in the results and thus the results from the function calls. We sought to include the most appropriate defaults for each search type.   
 
