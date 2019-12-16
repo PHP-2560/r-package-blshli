@@ -11,7 +11,7 @@ LazyData: false
 Imports:rvest, 
         lubridate,
         dplyr,
-        ggplot2,
+        httr,
         utils,
         stringr,
         purrr,

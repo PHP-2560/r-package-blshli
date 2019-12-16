@@ -19,16 +19,35 @@ The Nature website's main page consists of different sections including: Feature
 ## Our Goal
 For the purpose of this project, my group was interested in scraping information on the Latest research page from Nature. Our goal was to explore what kinds of information have been published in Nature journal since its forthcoming. We were also interested in exploring how many articles were published by decades and what keywords, papers and authors were popular. We further created funtions that could extract  articles by keyword, paper and subject; these categories could be further filtered using parameters such as: ***article type***, ***publication year***, ***date range*** and ***relevance***.
 
+## Development and individual contributions
+This package was based on the nature.scrape function written for the text mining assigment. Our goal was create a package that would allow a user to search for a topic of interest on nature.com and save the results  along wih other useful information such as the type of article, dates of publication and a url to the actual article to facilitate reading. *We realize  that limiting searching a broader data database would provide more utility and have developed the PubSearch package, which makes use of the entrez api to perform more robust literature searches (see shiny app)*
+
+We both worked on the original scrape function. For the package, Shawn was tasked with  functions to make the package complete.
+
+### Functions
+**parameter checks:** 
+The aim of these functions are to ensure that the inputs from the user conform to what is required to correctly generate a nature.com url. In most cases, these functions will sorrect common errors such as erroneous white spaces, case issues. The goal was to correct for simple mistakes and break (stop ) and output an error for other cases to ensure that the results the user is getting are those which were expected. 
+
+**explore** 
+These are the functions the users interact with. These functions take user defined objects and passes them to the appropriate downstream functions depending on the inputs. 
+
+Blessing was tasked with writting the documentation and use examples for the package. 
+
+We tried to ensure that sufficent documentation was available so that a new user would be able to use the package easily. We also included several examples which highlights different key functionalities in the help files and wrote this vignette. 
+
+**nature.scrape** 
+This function does the webscrapping and text mining. The consistency of the organization of nature.com websites made scrappiung the text and categorizing straightforward however, we realize that any refresh/update to the website's major design elements would likely render our package ineffective. 
+We aimed to avoid this in the PubSearch package, which is available on github, but is not being turned in for a grade since we dont have enough time to thoroughly test it.
+
 ## Getting Started
-
-To use this package, you will need to first run the following commands:
-
+The package can be installed from github using:
 ```{r message=FALSE, warning=FALSE}
 library(devtools)
 #install_github("PHP-2560/r-package-blshli")
 library(DiscoverNature)
 ```
-This code should provide access to the database with information to perform a basic search. There are three main categories that can be searched using this database. These are: **explore_keyword( )**, **explore_subject( )****/****list.topics( )**, and **explore_paper( )**. Other necessary packages needed to successfully run this package are:
+
+Packages needed to successfully run :
 
 ```{r }
 #library(rvest)
@@ -40,6 +59,7 @@ This code should provide access to the database with information to perform a ba
 #library(purrr)
 #library(xml2)
 #library(magrittr)
+#library(httr)
 ```
 
 Specfic use of each package can be found in the NAMESPACE file
@@ -56,28 +76,29 @@ This queries the nature.com website for a keyword(s) of interest, in this case *
 ### Example:
 The keyword search query can be modified by article type, publication year or date range, sort preference and page range as shown in the examples below:
 
-### ***By article type***
+**Search by article type**
 ```{r }
 cells_reviews <- explore_keyword('cells', article.types = 'reviews')
 cells_reviews
 ```
 
 **Valid article types:**
-* research 
-* reviews
-* news
-* comments-and-opinion
-* news-and-views
-* amendments-and-corrections
-* correspondenceeditorial
-* special-features
-* advertorial
-* books-and-arts
-* protocols
-* multimedia
-* research-highlights
 
-### ***By publication range/date***
+research,
+reviews,
+news,
+comments-and-opinion,
+news-and-views,
+amendments-and-corrections,
+correspondenceeditorial,
+special-features,
+advertorial,
+books-and-arts,
+protocols,
+multimedia,
+research-highlights
+
+**By publication range/date**
 ```{r }
 cells_reviews_last5years <- explore_keyword('cells', article.types = 'reviews', publication.range = 'last_5_years')
 cells_reviews_last5years
@@ -87,7 +108,6 @@ Predefined date ranges:
 *today*, *last_7_days*, *last_30_days*, *last_year*,*last_2_years*, *last_5_years*. 
 
 **Custom date range searches:**
-
 Users can also search for custom date ranges using either the **l.year** and **u.year** which corresponds to the lower and upper bounds of the year respectively (in 4 digit format).
 
 **NOTE**: if l.year/u.year  and predefined range arguments are supplied together, the predefined.range argument will take priority.
@@ -99,6 +119,7 @@ papersafter2015 <- explore_keyword('cells', article.types = 'reviews',
                                    sort.method = 'date_asc', l.year= 2015)
 papersafter2015
 ```
+
 l.year specifies the lower bound of date range. In other words, it includes articles published ***after*** a specific date/defaults to earliest year.
 
 ```{r }
@@ -107,9 +128,10 @@ papersbefore2015 <- explore_keyword('cells', article.types = 'reviews',
 papersbefore2015
 
 ```
+
 u.year specifies the upper bound of date range. In other words, includes articles ***before*** a specific date/defaults to current year. 
 
-### ***By sort methods***
+**Sort methods**
 
 The results can sorted by date or by relevance.  
 For keyword searches, the default sort method is by relevance, while for subject searches the default sort method is in descending order, with the newest papers shown first. The user should be aware of the sorting method since by default only the first page of results are returned. 

@@ -1,6 +1,9 @@
 # main scrapping function 
 nature.scrape <- function(url){
   web.page<- read_html(url) # get url
+  
+  url.check <- GET(url)
+  if(url.check$status_code == 404) stop('internal error, url not found') # check there is data on page
 
   
   
